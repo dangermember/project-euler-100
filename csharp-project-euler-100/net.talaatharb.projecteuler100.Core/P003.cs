@@ -62,6 +62,31 @@ namespace net.talaatharb.projecteuler100.Core
                 possibleFactor -= 2;
             }
             return result;
+
+            /**
+             * The following is a more efficient solution, 10x speed.
+             * 
+            long number = 600851475143L;
+            long result = 1;
+            long factor = 2;
+            while (factor * factor <= number)
+            {
+                if (number % factor == 0)
+                {
+                    result = factor;
+                    while (number % factor == 0)
+                    {
+                        number /= factor;
+                    }
+                }
+                factor++;
+            }
+            if (number > 1)
+            {
+                result = number;
+            }
+            return result;
+             */
         }
     }
 }
