@@ -1,5 +1,7 @@
 
 
+using System.Numerics;
+
 namespace net.talaatharb.projecteuler100.Core
 {
 
@@ -23,7 +25,14 @@ namespace net.talaatharb.projecteuler100.Core
         public override long Solve()
         {
             problemNumber = 16;
-            return 1366;
+            BigInteger number = BigInteger.Pow(2, 1000);
+            long sum = 0;
+            while (number > 0)
+            {
+                sum += (long)(number % 10);
+                number /= 10;
+            }
+            return sum;
         }
     }
 }
